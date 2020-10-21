@@ -3,32 +3,33 @@ package fall;
 public class GumballMachine {
 
     private int num_gumballs;
-    private boolean has_quarter;
+    private boolean moneySufficient;
+    private GumMachine machine;
 
-    public GumballMachine(int size) {
+    public GumballMachine(GumMachine mach, int size) {
         // initialise instance variables
+        machine = mach;
         this.num_gumballs = size;
-        this.has_quarter = false;
+        this.moneySufficient = false;
     }
 
-    public void insertQuarter(int coin) {
-        if (coin == 25)
-            this.has_quarter = true;
-        else
-            this.has_quarter = false;
+    public void insertCoin(int coin) {
+        this.moneySufficient = machine.insertMoney(coin);
     }
 
     public void turnCrank() {
-        if (this.has_quarter) {
+        if (this.moneySufficient) {
             if (this.num_gumballs > 0) {
                 this.num_gumballs--;
-                this.has_quarter = false;
-                System.out.println("Thanks for your quarter.  Gumball Ejected!");
+                this.moneySufficient = false;
+                this.machine.clear();
+                System.out.println("Thanks for your Money.  Gumball Ejected!");
             } else {
-                System.out.println("No More Gumballs!  Sorry, can't return your quarter.");
+                this.machine.clear();
+                System.out.println("No More Gumballs!  Please Collect your money.");
             }
         } else {
-            System.out.println("Please insert a quarter");
+            System.out.println("Please insert a money");
         }
     }
 }
