@@ -1,10 +1,9 @@
 package fall;
 
-public class GumMachineMulti implements GumMachine {
-    private int totalMoney;
+public class GumMachineMulti extends GumMachine {
 
     public GumMachineMulti() {
-        this.totalMoney = 0;
+        super();
     }
 
     @Override
@@ -24,9 +23,4 @@ public class GumMachineMulti implements GumMachine {
 
     }
 
-    @Override
-    public void clear() {
-        this.totalMoney -= 50;
-
-    }
 }

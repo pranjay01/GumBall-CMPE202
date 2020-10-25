@@ -1,11 +1,11 @@
 package fall;
 
-public class GumMachine25 implements GumMachine {
+public class GumMachine25 extends GumMachine {
 
-    private int totalMoney;
+    // private int totalMoney;
 
     public GumMachine25() {
-        this.totalMoney = 0;
+        super();
     }
 
     @Override
@@ -23,11 +23,6 @@ public class GumMachine25 implements GumMachine {
         System.out.println("Only Quarter Coins are Accepted, your coin is rejected");
         return false;
 
-    }
-
-    @Override
-    public void clear() {
-        this.totalMoney -= 25;
     }
 
 }
